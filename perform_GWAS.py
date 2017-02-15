@@ -34,6 +34,10 @@ def write_pheno(samples,metafile,meta_name,outfile):
 			o.write("%s\n" % tsv_dict[s][meta_name])
 			
 
+if len(sys.argv)!=5:
+	print "perform_GWAS.py <matrix> <metatfile> <meta_column> <prefix>"
+	quit()
+
 infile = sys.argv[1]
 metafile = sys.argv[2]
 selected_meta = sys.argv[3]
