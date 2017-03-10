@@ -165,7 +165,7 @@ parser_sub.add_argument('matrix', help='Initial matrix')
 parser_sub.add_argument('prefix', help='Prefix for output files')
 parser_sub.set_defaults(func=main_preprocess)
 
-parser_sub = subparsers.add_parser('assoc', help='Generate files for association', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser_sub = subparsers.add_parser('assoc', help='Perform association', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser_sub.add_argument('prefix', help='Prefix for input files')
 parser_sub.add_argument('outprefix', help='Prefix for output files')
 parser_sub.add_argument('metafile', help='Metadata TSV file with first column as the sample name and the rest phenotypes')
