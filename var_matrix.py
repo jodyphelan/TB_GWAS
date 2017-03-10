@@ -79,10 +79,14 @@ class varMat:
 		for chrom,pos in tqdm(self.positions):
 			arr = self.matrix[chrom][pos].rstrip().split()
 			locus_pos[self.ann[chrom][pos][meta_name]] = (arr[0],arr[1])
+			temp_ann_dict = {}
+			for x in self.ann[chrom][pos]["var_type"].split(","):
+				y = x.split(":")
+				temp_ann_dict[y[0]] = y[1]
 			for i in range(5,len(arr)):
 				if arr[i]=="NA":
 					continue
-				elif arr[i]!=self.ref[chrom][pos]:
+				elif arr[i]!=self.ref[chrom][pos] and temp_ann_dict[arr[i]]!="CDS_S":
 					locus_sum[self.ann[chrom][pos][meta_name]][self.header[i]]+=1
 				else:
 					locus_sum[self.ann[chrom][pos][meta_name]][self.header[i]]==0
